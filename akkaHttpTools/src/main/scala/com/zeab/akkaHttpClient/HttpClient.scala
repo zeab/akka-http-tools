@@ -1,10 +1,13 @@
 package com.zeab.akkaHttpClient
 
+import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
+import akka.stream.ActorMaterializer
 import com.zeab.httpSeed.HttpMethods.get
 import com.zeab.httpSeed.HttpError
 
+import scala.concurrent.ExecutionContext
 import scala.util.{Failure, Success, Try}
 
 trait HttpClient{
@@ -39,6 +42,10 @@ trait HttpClient{
     //def toHttpResponse:Either[HttpError, HttpResponse] = httpResponse(url, method, body, headers, metaData)
   }
   private def h1ttpResponse(url:String, method:String, body:Option[String], headers:Option[Map[String,String]], metaData:Option[Map[String,String]]):Either[HttpError, HttpResponse] = {
+
+    implicit val system:ActorSystem = ActorSystem()
+    implicit val mat:ActorMaterializer = ActorMaterializer()
+    implicit val ec:ExecutionContext = system.dispatcher
 
     val gg = Http().singleRequest(HttpRequest(uri = url)).map(a => a)
 
