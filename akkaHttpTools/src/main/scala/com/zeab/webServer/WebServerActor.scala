@@ -40,7 +40,7 @@ class WebServerActor extends Actor with ActorLogging{
     log.debug(s"Stopping ${self.path.name}")
     openServer match {
       case Some(webServer) =>
-        webServer.onComplete(a => println(a.get.localAddress))
+        webServer.onComplete(s => println(s.get.localAddress))
         webServer.flatMap(_.unbind())
       case None =>
         log.debug("Stop Web Server Received but no web server is available to stop")
