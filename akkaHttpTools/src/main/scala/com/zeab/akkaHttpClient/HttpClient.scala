@@ -52,7 +52,7 @@ trait HttpClient{
     val sss = gg.value.getOrElse(Try(HttpResponse()))
 
     val hhh = sss.getOrElse(HttpResponse())
-    
+
     val dd = Http().singleRequest(HttpRequest(uri = url))
       .onComplete {
         case Success(res) =>
