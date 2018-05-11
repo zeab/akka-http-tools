@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.org/zeab/akka-http-tools.svg?branch=master)](https://travis-ci.org/zeab/akka-http-tools)
+[![Build Status](https://travis-ci.org/zeab/akka-http-tools.svg?branch=master)](https://travis-ci.org/zeab/akka-http-tools) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9c748ba51d29451c950cccb563757fc1)](https://www.codacy.com/app/zeab/akka-http-tools?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=zeab/akka-http-tools&amp;utm_campaign=Badge_Grade)
