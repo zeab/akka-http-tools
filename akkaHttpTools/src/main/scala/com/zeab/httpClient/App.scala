@@ -3,24 +3,27 @@ package com.zeab.httpClient
 import akka.actor.{ActorSystem, Props}
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.HttpRequest
+import akka.http.scaladsl.model.ws.{Message, TextMessage}
 import com.zeab.webServer.WebServerActor
 import com.zeab.webServer.WebServerMessages.StartWebServer
+import com.zeab.webSocket.{WebSocket, WebSocket2, WebSocketActor}
+import com.zeab.webSocket.WebSocketMessages.OpenWebSocket
 
 object App extends App{
 
   implicit val actorSystem:ActorSystem = ActorSystem()
 
-  val x = actorSystem.actorOf(Props[WebServerActor])
-  x ! StartWebServer(Routes.generalRoute, "8080", "8.8.8.8")
+  actorSystem.actorOf(Props[WebServerActor]) ! StartWebServer(Routes.websocketRoute)
 
-  //Thread.sleep(2000)
-
-  println("aa")
-  //while(true){
-    x ! StartWebServer(Routes.generalRoute, "8080", "8.8.8.8")
+  //actorSystem.actorOf(Props[WebSocketActor]) ! OpenWebSocket()
   //}
 
   //actorSystem.actorOf(Props[WebServerActor2]) ! StartWebServer(Routes.generalRoute)
 
+  val ss = new WebSocket2 {
+    override def incomingMsg(text: String): Message = TextMessage(s"asdasd $text")
+  }
+
+  val ff = ss.simpleWebSocket
 
 }
