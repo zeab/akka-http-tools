@@ -9,20 +9,28 @@ object Dependencies {
     val seeds                     = "2.0.0-RC2"
     val akkaHttp                  = "10.1.0-RC1"
     val akka                      = "2.5.9"
+    val akkaTestKit               = "2.5.12"
+    val scalaTest                 = "3.0.5"
   }
 
-  //List of Dependencies
+  //Units of Work
   val seeds                       = "zeab" %% "seeds" % V.seeds
 
   //Akka
   val akkaStream                  = "com.typesafe.akka" %% "akka-stream" % V.akka
   val akkaHttp                    = "com.typesafe.akka" %% "akka-http" % V.akkaHttp
 
+  //Test
+  val akkaTestKit                 = "com.typesafe.akka" %% "akka-testkit" % V.akkaTestKit % Test
+  val scalaTest                   = "org.scalatest" %% "scalatest" % V.scalaTest % "test"
+
   //Group Common Dependencies
   val commonDependencies: Seq[ModuleID] = Seq(
     seeds,
     akkaStream,
-    akkaHttp
+    akkaHttp,
+    akkaTestKit,
+    scalaTest
   )
 
 }
