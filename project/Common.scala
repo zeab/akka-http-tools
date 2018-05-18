@@ -15,10 +15,15 @@ object Common {
     organization := "zeab"
   )
 
-  val artifactory:Seq[Def.Setting[_]] = Seq(
-    publishTo := Some("Artifactory Realm" at "http://165.227.62.157:8081/artifactory/zeab"),
-    credentials += Credentials("Artifactory Realm", "165.227.62.157", "", ""),
+  //Collect common resolvers together
+  val commonResolvers:Seq[Def.Setting[_]] = Seq(
     resolvers += "Artifactory" at "http://165.227.62.157:8081/artifactory/zeab/"
+  )
+
+  //Disable publishing
+  val disablePublishing: Seq[Def.Setting[_]] = Seq(
+    publishLocal := {},
+    publish := {}
   )
 
   //Add the library's to this list that need to be excluded. Below is excluding certain log4j lib's

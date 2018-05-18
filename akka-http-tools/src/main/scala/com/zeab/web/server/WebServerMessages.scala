@@ -1,4 +1,4 @@
-package com.zeab.webServer
+package com.zeab.web.server
 
 //Imports
 import akka.http.scaladsl.server.Route

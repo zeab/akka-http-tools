@@ -1,7 +1,7 @@
-package com.zeab.webServer
+package com.zeab.web.server
 
 //Imports
-import com.zeab.webServer.WebServerMessages.{StartWebServer, StopWebServer}
+import com.zeab.web.server.WebServerMessages.{StartWebServer, StopWebServer}
 //Akka
 import akka.actor.{Actor, ActorLogging, ActorSystem}
 import akka.stream.ActorMaterializer

@@ -1,8 +1,8 @@
 package webServer
 
 //Imports
-import com.zeab.webServer.WebServerActor
-import com.zeab.webServer.WebServerMessages.{StartWebServer, StopWebServer}
+import com.zeab.web.server.WebServerActor
+import com.zeab.web.server.WebServerMessages.{StartWebServer, StopWebServer}
 //Akka
 import akka.actor.{ActorRef, ActorSystem, Props}
 import akka.testkit.{EventFilter, ImplicitSender, TestKit}
