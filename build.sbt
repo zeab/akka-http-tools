@@ -3,7 +3,7 @@
 import Common._
 import Dependencies._
 
-lazy val akkaHttpTools = (project in file("akkaHttpTools"))
+lazy val akkaHttpTools = (project in file("akka-http-tools"))
   .settings(baseProjectSettings: _*)
   .settings(libraryDependencies ++= commonDependencies)
   .settings(artifactory: _*)
