@@ -6,10 +6,9 @@ object Dependencies {
 
   //List of Versions
   val V = new {
-    val seeds                     = "4.0.0"
-    val akkaHttp                  = "10.1.0-RC1"
-    val akka                      = "2.5.9"
-    val akkaTestKit               = "2.5.12"
+    val seeds                     = "4.0.7"
+    val akkaHttp                  = "10.1.1"
+    val akka                      = "2.5.12"
     val scalaTest                 = "3.0.5"
   }
 
@@ -21,7 +20,7 @@ object Dependencies {
   val akkaHttp                    = "com.typesafe.akka" %% "akka-http" % V.akkaHttp
 
   //Test
-  val akkaTestKit                 = "com.typesafe.akka" %% "akka-testkit" % V.akkaTestKit % Test
+  val akkaTestKit                 = "com.typesafe.akka" %% "akka-testkit" % V.akka % Test
   val scalaTest                   = "org.scalatest" %% "scalatest" % V.scalaTest % "test"
 
   //Group Common Dependencies
