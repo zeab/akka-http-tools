@@ -32,6 +32,6 @@ trait Marshallers {
     }
 
   implicit final def marshaller[A: Encoder]: ToEntityMarshaller[A] =
-    Marshaller.oneOf(xmlMarshaller, jsonMarshaller, textMarshaller)
+    Marshaller.oneOf(jsonMarshaller, xmlMarshaller, textMarshaller)
 
 }

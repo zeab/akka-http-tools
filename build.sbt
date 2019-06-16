@@ -2,8 +2,6 @@
 //Imports
 import Settings._
 import Dependencies._
-import Docker._
-import ModuleNames._
 
 //Sbt Log Level
 logLevel := Level.Info
