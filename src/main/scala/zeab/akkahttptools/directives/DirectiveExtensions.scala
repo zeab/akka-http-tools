@@ -8,7 +8,7 @@ import akka.http.scaladsl.server.{Directive, RejectionHandler, RequestContext}
 trait DirectiveExtensions {
 
   def logRoute(idKey:String = "CorrelationId"): Directive[Unit] =
-    extractActorSystem.flatMap{system: ActorSystem =>
+    extractActorSystem.flatMap{ system: ActorSystem =>
       extractRequestContext.flatMap { ctx: RequestContext =>
         val startTime: Long = System.currentTimeMillis()
         //The id to look for in the headers for logging purposes
@@ -21,11 +21,8 @@ trait DirectiveExtensions {
           //Put the RouteTimerEvent into the event stream so anyone can connect and use how they please
           system.eventStream.publish(RouteTimerEvent(System.currentTimeMillis().toString, id, resp.status.intValue(), ctx.request.method.name, ctx.request.uri.toString(), totalTime))
           resp
-        } & handleRejections {
-          RejectionHandler.default
-        }
+        } & handleRejections { RejectionHandler.default }
       }
     }
-
 
 }
