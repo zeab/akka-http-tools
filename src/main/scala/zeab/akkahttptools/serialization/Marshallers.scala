@@ -1,7 +1,7 @@
 package zeab.akkahttptools.serialization
 
 //Imports
-import zeab.aenea.XmlSerialize
+import zeab.aenea.XmlSerializer._
 //Akka
 import akka.http.scaladsl.marshalling.{Marshaller, ToEntityMarshaller}
 import akka.http.scaladsl.model._
@@ -13,7 +13,7 @@ trait Marshallers {
 
   def xmlMarshaller[A]: ToEntityMarshaller[A] =
     Marshaller.withFixedContentType(ContentType(MediaTypes.`application/xml`, HttpCharsets.`UTF-8`)) { body =>
-      XmlSerialize.xmlSerialize[String](body) match {
+      body.asXml match {
         case Right(xml) =>
           HttpEntity(contentType = ContentType(MediaTypes.`application/xml`, HttpCharsets.`UTF-8`), xml)
         case Left(_) =>

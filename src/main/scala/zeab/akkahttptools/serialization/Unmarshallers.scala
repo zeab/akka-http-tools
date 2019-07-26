@@ -1,7 +1,7 @@
 package zeab.akkahttptools.serialization
 
 //Imports
-import zeab.aenea.XmlDeserialize
+import zeab.aenea.XmlDeserializer._
 //Akka
 import akka.http.scaladsl.model.MediaTypes.{`application/json`, `application/xml`}
 import akka.http.scaladsl.model.{ContentTypeRange, MediaType}
@@ -35,7 +35,7 @@ trait Unmarshallers {
       .stringUnmarshaller
       .forContentTypes(unmarshallerContentTypes: _*)
       .map { str =>
-        XmlDeserialize.xmlDeserialize[A](str) match {
+        str.fromXml[A] match {
           case Right(value) => value
           case Left(ex) => throw ex
         }
