@@ -18,7 +18,6 @@ trait DirectiveExtensions {
           .getOrElse("no-id")
         mapResponse { resp =>
           val totalTime: Long = System.currentTimeMillis() - startTime
-          //Put the RouteTimerEvent into the event stream so anyone can connect and use how they please
           system.eventStream.publish(RouteTimerEvent(System.currentTimeMillis().toString, id, resp.status.intValue(), ctx.request.method.name, ctx.request.uri.toString(), totalTime))
           resp
         } & handleRejections { RejectionHandler.default }

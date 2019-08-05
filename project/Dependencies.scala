@@ -9,7 +9,7 @@ object Dependencies {
     val akkaHttp                    = "10.1.9"
     val circe                       = "0.11.1"
     val scalaTest                   = "3.0.5"
-    val aenea                       = "2.0.0-RC3"
+    val aenea                       = "2.0.0"
   }
 
   //List of Dependencies
